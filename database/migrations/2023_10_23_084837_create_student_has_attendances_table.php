@@ -6,21 +6,17 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('student_has_attendances', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('mobile');
-            $table->rememberToken();
+            $table->foreignId('student_id')->constrained('students');
+            $table->foreignId('day_id')->constrained('attendance_dates');
             $table->timestamps();
         });
     }
-
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('user_has_attendances');
     }
 };

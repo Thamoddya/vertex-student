@@ -13,6 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[\App\Http\Controllers\Controller::class,'showAllUsers']);
+
+Route::post('/addDate',[\App\Http\Controllers\DateController::class,'addDate'])->name('addDate');
