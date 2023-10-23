@@ -13,8 +13,7 @@ class DateController extends Controller
             'day_name'=>$request->date_name,
             'lecture_date'=>$request->date,
         ]);
-
-        return redirect()->back()->with('message', 'Email sent successfully.');
+        return redirect()->back()->with('dateMessage', 'Email sent successfully.');
     }
 
 }
