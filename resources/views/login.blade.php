@@ -15,25 +15,46 @@
             integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body class="bg-dark">
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 mt-5">
             <div class="row mt-5">
+                <div class="col-md-5 offset-md-1 mb-3">
+                    <div class="row">
+                        <div class="col-12">
+                            <h3 class="p-3 text-white">Vertex Co - Student Management</h3>
+                        </div>
+                        <div class="col-12">
+                            <form action="{{route('team.login')}}" method="POST">
+                                @csrf
+                                @if (session('error'))
+                                    <div class="alert alert-danger">
+                                        {{ session('error') }}
+                                    </div>
+                                @endif
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label text-white" >Email</label>
+                                    <input type="email" class="form-control" id="exampleFormControlInput1" name="email"
+                                           placeholder="name@example.com">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label text-white">Password</label>
+                                    <input type="text" class="form-control" name="password"
+                                           placeholder="">
+                                </div>
+
+                                @if(session('success'))
+                                    <a  href="{{route('home')}}">Login Success.Click Here To Go Admin panel</a>
+                                @else
+                                    <button type="submit" class="btn btn-primary">Login</button>
+                                @endif
+                            </form>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-md-6 ">
                     <img src="{{asset('images/pexels-fauxels-3184436.jpg')}}" class="img-fluid rounded rounded-2">
-                </div>
-                <div class="col-md-6">
-                <div class="row">
-                    <div class="col-12">
-                        <h3 class="p-3">Vertex Co - Student Management</h3>
-                    </div>
-                    <div class="col-12">
-                        <form>
-
-                        </form>
-                    </div>
-                </div>
                 </div>
             </div>
         </div>

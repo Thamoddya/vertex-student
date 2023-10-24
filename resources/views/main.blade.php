@@ -6,18 +6,19 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Vertex Co - Student</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-            crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <link href="{{url('https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css')}}"
+          rel="stylesheet"/>
+    <script src="{{url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{url('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')}}"></script>
+    <link rel="stylesheet" href="{{url('https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
 </head>
 
-<body class="bg-dark">
+<body class="bg-dark" id="body-pd">
 
 <div class="container-fluid">
-    <div class="row">
+    @include('components.sidebar')
+    <div class="row height-100">
         <div class="col-md-4">
             <div class="row">
                 <div class="col-12">
@@ -66,7 +67,9 @@
                         @endif
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1">Student Name :- </span>
-                            <input type="text" class="form-control @error('student_name') is-invalid @enderror" placeholder="Type Student Name" aria-label="Student Name" name="student_name" aria-describedby="basic-addon1">
+                            <input type="text" class="form-control @error('student_name') is-invalid @enderror"
+                                   placeholder="Type Student Name" aria-label="Student Name" name="student_name"
+                                   aria-describedby="basic-addon1">
                             @error('student_name')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -142,21 +145,22 @@
                     <hr class="text-white">
                 </div>
                 <div class="col-12">
-                    <form method="get" action="{{route('addAttendance')}}" >
+                    <form method="get" action="{{route('addAttendance')}}">
                         @csrf
                         @if(session('attendanceMessage'))
                             <p class="text-success">{{session('attendanceMessage')}}</p>
                         @endif
-                        <select class="form-select mb-3" aria-label="eventSelector" id="eventSelector" >
-                            <option selected >Select An Event To Load Student</option>
+                        <select class="form-select mb-3" aria-label="eventSelector" id="eventSelector">
+                            <option selected>Select An Event To Load Student</option>
                             @foreach($events as $event)
                                 <option data-event-id="{{ $event->id }}">{{ $event->event_name }}</option>
                             @endforeach
                         </select>
-                        <select class="form-select mb-3" aria-label="studentSelector" id="studentSelector" name="student_id">
+                        <select class="form-select mb-3" aria-label="studentSelector" id="studentSelector"
+                                name="student_id">
 
                         </select>
-                        <select class="form-select mb-3" aria-label="studentSelector"  name="day_id" >
+                        <select class="form-select mb-3" aria-label="studentSelector" name="day_id">
                             <option>Select A Event Date</option>
                             @foreach($dates as $date)
                                 <option value="{{$date->id}}">{{$date->day_name}}</option>
@@ -175,31 +179,6 @@
     </div>
 </div>
 
-
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const eventSelector = document.getElementById('eventSelector');
-        const studentSelector = document.getElementById('studentSelector');
-
-        eventSelector.addEventListener('change', function () {
-            const selectedEventId = eventSelector.options[eventSelector.selectedIndex].getAttribute('data-event-id');
-
-            fetch(`/getStudentsByEvent/${selectedEventId}`)
-                .then(response => response.json())
-                .then(data => {
-                    // Clear existing student options
-                    studentSelector.innerHTML = '';
-
-                    data.forEach(student => {
-                        const option = document.createElement('option');
-                        option.text = student.name;
-                        option.value = student.id;
-                        studentSelector.add(option);
-                    });
-                });
-        });
-    });
-</script>
-
+<script src="{{asset('js/script.js')}}"></script>
 </body>
 </html>

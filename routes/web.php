@@ -12,9 +12,10 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::post('/team-login',[\App\Http\Controllers\AuthController::class , 'login'])->name('team.login');
 
 Route::middleware('auth:sanctum')->group(function ( ) {
-    Route::get('/',[\App\Http\Controllers\StudentController::class,'showAllStudents']);
+    Route::get('/',[\App\Http\Controllers\StudentController::class,'showAllStudents'])->name("home");
     Route::post('/add-date',[\App\Http\Controllers\DateController::class,'addDate'])->name('addDate');
     Route::post('/add-event',[\App\Http\Controllers\EventController::class,'addEvent'])->name('addEvent');
     Route::post('/add-student',[\App\Http\Controllers\StudentController::class,'addStudent'])->name('addStudent');
@@ -25,3 +26,5 @@ Route::middleware('auth:sanctum')->group(function ( ) {
 Route::get('login',function (){
     return view('login');
 })->name('login');
+
+
