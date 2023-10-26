@@ -19,10 +19,10 @@
                 <a href="#calender" class="nav_link ">
                     <i class='bx bx-calendar nav_icon'></i> <span class="nav_name">Calender</span>
                 </a>
-                <a href="#" class="nav_link ">
+                <a href="#events" class="nav_link ">
                     <i class='bx bx-bookmark nav_icon'></i> <span class="nav_name">Events</span>
                 </a>
-                <a href="#" class="nav_link ">
+                <a href="#student" class="nav_link ">
                     <i class='bx bx-file nav_icon'></i> <span class="nav_name">Student</span>
                 </a>
                 <a href="#" class="nav_link ">
