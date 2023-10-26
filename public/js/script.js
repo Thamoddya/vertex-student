@@ -13,9 +13,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 nav.classList.toggle('show')
 // change icon
                 toggle.classList.toggle('bx-x')
-// add padding to body
+
                 bodypd.classList.toggle('body-pd')
-// add padding to header
+
                 headerpd.classList.toggle('body-pd')
             })
         }
@@ -40,6 +40,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 
 document.addEventListener('DOMContentLoaded', function () {
+
     const eventSelector = document.getElementById('eventSelector');
     const studentSelector = document.getElementById('studentSelector');
 
@@ -60,4 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
             });
     });
+
 });
+
+

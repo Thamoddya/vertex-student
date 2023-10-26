@@ -15,4 +15,10 @@ class Student extends Model
         'email',
         'event_id'
     ];
+
+    public function event()
+    {
+        return $this->belongsTo(Event::class, 'event_id');
+    }
+
 }

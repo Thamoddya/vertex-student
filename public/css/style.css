@@ -5,7 +5,7 @@
     --nav-width: 68px;
     --first-color: #083378;
     --first-color-light: #AFA5D9;
-    --white-color: rgba(8, 51, 120, 0.56);
+    --white-color: rgba(107, 146, 204, 0.56);
     --body-font: 'Nunito', sans-serif;
     --normal-font-size: 1rem;
     --z-fixed: 100
@@ -31,7 +31,7 @@ a {
 .header {
     width: 100%;
     height: var(--header-height);
-    position: fixed;
+    position: static;
     top: 0;
     left: 0;
     display: flex;
@@ -87,7 +87,8 @@ a {
     grid-template-columns: max-content max-content;
     align-items: center;
     column-gap: 1rem;
-    padding: .5rem 0 .5rem 1.5rem
+    padding: .5rem 0 .5rem 1.5rem;
+    text-decoration: none;
 }
 
 .nav_logo {

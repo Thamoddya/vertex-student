@@ -14,4 +14,10 @@ class Event extends Model
         'venue',
         'started_date',
     ];
+
+    public function students()
+    {
+        return $this->hasMany(Student::class, 'event_id');
+    }
+
 }

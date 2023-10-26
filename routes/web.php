@@ -2,16 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 Route::post('/team-login',[\App\Http\Controllers\AuthController::class , 'login'])->name('team.login');
 
 Route::middleware('auth:sanctum')->group(function ( ) {
@@ -21,10 +11,10 @@ Route::middleware('auth:sanctum')->group(function ( ) {
     Route::post('/add-student',[\App\Http\Controllers\StudentController::class,'addStudent'])->name('addStudent');
     Route::get('/add-attendance',[\App\Http\Controllers\StudentHasAttendanceController::class,'addAttendance'])->name('addAttendance');
     Route::get('/getStudentsByEvent/{eventId}', [\App\Http\Controllers\StudentController::class,'getStudentsByEvent']);
-});
+    Route::post('/add-team-member', [\App\Http\Controllers\Controller::class,'addTeamMember'])->name('add-team-member');
 
+});
+Route::post('/send-team-email', [\App\Http\Controllers\Controller::class,'sendUserEmail'])->name('send-team-email');
 Route::get('login',function (){
     return view('login');
 })->name('login');
-
-
