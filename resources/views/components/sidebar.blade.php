@@ -1,7 +1,7 @@
 <header class="header" id="header">
     <div class="header_toggle"><i class='bx bx-menu' id="header-toggle"></i></div>
     <img src="{{asset('images/Logo.png')}}" style="width: 20%" alt="vertex cooperation">
-    <div class="header_img"><img src="https://i.imgur.com/hczKIze.jpg" alt=""></div>
+    <div class="header_img"><img src="https://vertexcooperation.com/images/home/{{$siteDate['userData']['username']}}.jpg" alt=""></div>
 </header>
 <div class="l-navbar" id="nav-bar">
     <nav class="nav">
