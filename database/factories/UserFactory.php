@@ -19,12 +19,12 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => 'Thamoddya Rashmitha',
-            'email' => 'thamoddyarashmithadissanayake@gmail.com',
-            'username' => 'thamoddya',
-            'mobile' => '0769458554',
-            'password' => Hash::make(1234),
-            'role_id' => 1,
+//            'name' => 'Vertex Co Admin',
+//            'email' => 'admin@vertexcooperation.com',
+//            'username' => 'admin',
+//            'mobile' => '0769458554',
+//            'password' => Hash::make(1234),
+//            'role_id' => 1,
         ];
     }
 
